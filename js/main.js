@@ -6,15 +6,11 @@ onload = () => {
     const titleElement = document.getElementById('title');
     let index = 0;
 
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    async function appendTitle() {
-      while (index < titles.length) {
+    function appendTitle() {
+      if (index < titles.length) {
         titleElement.innerHTML += titles[index];
         index++;
-        await sleep(150); // Задержка между символами (150 мс)
+        setTimeout(appendTitle, 100); // Задержка 100 мс между символами
       }
     }
 
