@@ -2,7 +2,7 @@ onload = () => {
   const c = setTimeout(() => {
     document.body.classList.remove("not-loaded");
 
-    const titles = ('любимая моя, прошу вас присоединиться к замечательному времяпрепровождению со мной в Майнкрафт на сервере по адресу nqsswx-vtMC.aternos.me:29961, буду почтена вашему вниманию, ожидаю вас уже там вместе со всей моей любовью!').split('');
+    const titles = ('любимая моя, прошу вас присоединиться к замечательному времяпрепровождению со мной в Майнкрафте на сервере по адресу nqsswx-vtMC.aternos.me:29961, буду почтена вашему вниманию, ожидаю вас уже там вместе со всей моей любовью!').split('')
     const titleElement = document.getElementById('title');
     let index = 0;
 
@@ -10,18 +10,11 @@ onload = () => {
       if (index < titles.length) {
         titleElement.innerHTML += titles[index];
         index++;
+        setTimeout(appendTitle, 300); // 1000ms delay
       }
     }
 
-    // Прямо вызываем appendTitle в setInterval с интервалом в 100 мс
-    const interval = setInterval(() => {
-      appendTitle();
-    }, 100); // Интервал 100 мс между символами
-
-    // Останавливаем setInterval, когда весь текст выведен
-    setTimeout(() => {
-      clearInterval(interval);
-    }, titles.length * 100); // Остановить через время, необходимое для вывода всех символов
+    appendTitle();
 
     clearTimeout(c);
   }, 1000);
