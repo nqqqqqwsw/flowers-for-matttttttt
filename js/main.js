@@ -10,11 +10,18 @@ onload = () => {
       if (index < titles.length) {
         titleElement.innerHTML += titles[index];
         index++;
-        setTimeout(appendTitle, 0); // Задержка 100 мс между символами
       }
     }
 
-    appendTitle();
+    // Прямо вызываем appendTitle в setInterval с интервалом в 100 мс
+    const interval = setInterval(() => {
+      appendTitle();
+    }, 100); // Интервал 100 мс между символами
+
+    // Останавливаем setInterval, когда весь текст выведен
+    setTimeout(() => {
+      clearInterval(interval);
+    }, titles.length * 100); // Остановить через время, необходимое для вывода всех символов
 
     clearTimeout(c);
   }, 1000);
