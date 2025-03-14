@@ -6,15 +6,19 @@ onload = () => {
     const titleElement = document.getElementById('title');
     let index = 0;
 
-    // Используем setInterval для более быстрых обновлений
-    const interval = setInterval(() => {
-      if (index < titles.length) {
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function appendTitle() {
+      while (index < titles.length) {
         titleElement.innerHTML += titles[index];
         index++;
-      } else {
-        clearInterval(interval); // Останавливаем интервал, когда весь текст выведен
+        await sleep(150); // Задержка между символами (150 мс)
       }
-    }, 100000000000); // 50 мс между добавлением символов
+    }
+
+    appendTitle();
 
     clearTimeout(c);
   }, 1000);
