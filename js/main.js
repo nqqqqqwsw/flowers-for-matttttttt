@@ -11,7 +11,7 @@ onload = () => {
       if (index < titles.length) {
         titleElement.innerHTML += titles[index];
         index++;
-        setTimeout(appendTitle, 50); // 1000ms delay
+        requestAnimationFrame(appendTitle); //
       }
     }
 
