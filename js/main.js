@@ -2,7 +2,7 @@ onload = () => {
   const c = setTimeout(() => {
     document.body.classList.remove("not-loaded");
 
-    const titles = ('любимуся моя, прошу вас присоединиться к замечательному времяпрепровождению со мной в майнкрафтике на сервере по адресу nqsswx-vtMC.aternos.me:29961, буду почтена вашему вниманию, ожидаю вас уже там вместе со всей моей любовью!').split('')
+    const titles = ('любимая сладусюля, имею честь пригласить вас на высокоторжественное погружение в игру в майнкрафт, ожидаю вас уже на месте со всей любовью').split('')
     const titleElement = document.getElementById('title');
     let index = 0;
 
